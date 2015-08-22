@@ -48,3 +48,41 @@
   	background-color: #fff;
   	border-color: #fff;
 }
+
+#loginModal i{
+	vertical-align: middle;
+}
+
+#loginModal #google-icon{
+	color: #3F85F4;
+}
+
+#loginModal #facebook-icon{
+	color: #3763A2;
+}
+
+#loginModal #twitter-icon{
+	color: #659FCB;
+}
+
+#loginModal #google label{
+	color: #2E2E2E;
+	font-family: Lato;
+	font-size: 15px;
+}
+
+#loginModal #facebook label{
+	color: #2E2E2E;
+	font-family: Lato;
+	font-size: 15px;
+}
+
+#loginModal #twitter label{
+	color: #2E2E2E;
+	font-family: Lato;
+	font-size: 15px;
+}
+
+
+
+

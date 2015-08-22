@@ -7,13 +7,11 @@
 @section('content')
 <div class="container-fluid header">
 	<div class="container">
-    	<p>Welcome aboard</p>
-    	<p>Your dream is coming true at this moment</p>
-	</div>
-</div>
-<div class="container-fluid footer">
-	<div class="container">
-    	
+    	<h1>Welcome aboard</h1>
+    	<h2>Your dream is coming true at this moment</h2>
+    	<a href='/login' class='btn btn-outline-inverse btn-lg'>
+            <font> Login To Book Your Ticket Now</font>
+        </a>
 	</div>
 </div>
 @endsection

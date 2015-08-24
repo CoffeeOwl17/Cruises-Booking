@@ -4,13 +4,6 @@
 <link href="{{ URL::asset('css/IndexStyle.css') }}" rel="stylesheet" type="text/css" >
 @endsection
 
-@section('script')
-<script>
-$(document).ready(function() {
- });
-</script>
-@endsection
-
 @section('content')
 <div class="container-fluid header">
 	<div class="container">
@@ -37,7 +30,7 @@ $(document).ready(function() {
       						<i class="fa fa-google-plus-square fa-4x" id="google-icon" ></i> <label>Google Plus</label>
       					</div>
       					<div class="col-sm-4" id="facebook">
-      						<i class="fa fa-facebook-square fa-4x" id="facebook-icon" ></i> <label>Facebook</label>
+      						<a href="/fb_login"><i class="fa fa-facebook-square fa-4x" id="facebook-icon" ></i> <label>Facebook</label></a>
       					</div>
       					<div class="col-sm-4" id="twitter">
       						<i class="fa fa-twitter-square fa-4x" id="twitter-icon" ></i> <label>Twitter</label>

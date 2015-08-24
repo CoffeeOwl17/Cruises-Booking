@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'index_controller@index');
+Route::get('/fb_login', 'login_controller@facebook');
+Route::get('/home', 'home_controller@index');
+

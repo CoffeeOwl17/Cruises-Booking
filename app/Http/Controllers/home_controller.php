@@ -15,6 +15,8 @@ session_start();
 class home_controller extends Controller
 {
     public function index(){
+    	$user_data = "";
+
     	$fb = new Facebook\Facebook([
 		  'app_id' => Config::get('facebook.appid'),
 		  'app_secret' => Config::get('facebook.secret'),
@@ -22,8 +24,6 @@ class home_controller extends Controller
 		  ]);
 
     	$helper = $fb->getRedirectLoginHelper();
-
-    	
 
 		if(isset($_SESSION['fb_access_token'])){
 			try {

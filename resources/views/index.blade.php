@@ -50,7 +50,7 @@
       						<a href="/fb_login"><i class="fa fa-facebook-square fa-4x" id="facebook-icon" ></i> <label>Facebook</label></a>
       					</div>
       					<div class="col-sm-4" id="twitter">
-      						<i class="fa fa-twitter-square fa-4x" id="twitter-icon" ></i> <label>Twitter</label>
+      						<a href="/twitter_login"><i class="fa fa-twitter-square fa-4x" id="twitter-icon" ></i> <label>Twitter</label></a>
       					</div>
       				</div>
       			</div>

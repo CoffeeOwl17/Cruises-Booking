@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Facebook;
+use Abraham\TwitterOAuth\TwitterOAuth;
 use Config;
 
 session_start();
@@ -41,12 +42,23 @@ class login_controller extends Controller
 		return redirect($loginUrl);
     }
 
-    public function google($idtoken){
-    	return ($idtoken);
+    public function twitter(){
+    	$connection = new TwitterOAuth(Config::get('twitter.appid'), Config::get('twitter.secret'));
+    	$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => "http://127.0.0.1:8000/home"));
+    	if($request_token["oauth_callback_confirmed"]){
+    		$_SESSION['login_type'] = "facebook";
+    		$_SESSION['oauth_token'] = $request_token['oauth_token'];
+			$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
+			$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+
+			$_SESSION['login_type'] = "twitter";
+			return redirect($url);
+    	}
+    	
     }
 
     public function google_session(){
-    	$_SESSION['login_type'] 			= "google";
+    		$_SESSION['login_type'] 			= "google";
 	    	$_SESSION['google_access_token']	= $_POST['idtoken'];
 	    	$_SESSION['name']					= $_POST['name'];
 	    	$_SESSION['id']						= $_POST['id'];

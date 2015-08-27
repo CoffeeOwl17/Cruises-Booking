@@ -13,8 +13,9 @@
 
 Route::get('/', 'index_controller@index');
 Route::get('/fb_login', 'login_controller@facebook');
-Route::get('/googlesignin/{idtoken}', 'login_controller@google');
+Route::get('/twitter_login', 'login_controller@twitter');
 Route::post('/glogin_session', 'login_controller@google_session');
 Route::get('/home', 'home_controller@index');
+Route::get('/logout', 'logout_controller@index');
 
 

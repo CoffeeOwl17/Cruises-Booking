@@ -12,5 +12,4 @@
 @section('content')
 {!! $Name !!}
 {!! $ID !!}
-{!! $Surname !!}
 @endsection

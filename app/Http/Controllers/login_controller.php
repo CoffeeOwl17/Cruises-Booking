@@ -36,7 +36,19 @@ class login_controller extends Controller
 		}
 
 		$loginUrl = $helper->getLoginUrl('http://localhost:8000/home');
+		$_SESSION['login_type'] = "facebook";
 
 		return redirect($loginUrl);
+    }
+
+    public function google($idtoken){
+    	return ($idtoken);
+    }
+
+    public function google_session(){
+    	$_SESSION['login_type'] 			= "google";
+	    	$_SESSION['google_access_token']	= $_POST['idtoken'];
+	    	$_SESSION['name']					= $_POST['name'];
+	    	$_SESSION['id']						= $_POST['id'];
     }
 }

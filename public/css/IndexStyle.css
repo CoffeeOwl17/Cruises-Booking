@@ -54,7 +54,7 @@
 }
 
 #loginModal #google-icon{
-	color: #DF4B38;
+	color: #0058C6;
 }
 
 #loginModal #facebook-icon{
@@ -81,6 +81,31 @@
 	color: #2E2E2E;
 	font-family: Lato;
 	font-size: 15px;
+}
+
+span.icon {
+  background: url('../images/google.png') transparent 5px 50% no-repeat;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+}
+
+#customBtn {
+  display: inline-block;
+  
+}
+
+#customBtn:hover {
+  cursor: pointer;
+}
+
+span.buttonText {
+  display: inline-block;
+  
+  color: #2E2E2E;
+  font-family: Lato;
+  font-size: 15px;
 }
 
 

@@ -2,6 +2,14 @@
 
 @section('include')
 <link href="{{ URL::asset('css/IndexStyle.css') }}" rel="stylesheet" type="text/css" >
+<script src="https://apis.google.com/js/api:client.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<meta name="google-signin-client_id" content="1058358629596-g4u9j540pt7vq8n4a2ogshrj80uis7ve.apps.googleusercontent.com">
+@endsection
+
+@section('script')
+@include('_IndexJS')
 @endsection
 
 @section('content')
@@ -27,7 +35,16 @@
       			<div class="container-fluid">
       				<div class="row">
       					<div class="col-sm-4" id="google">
-      						<i class="fa fa-google-plus-square fa-4x" id="google-icon" ></i> <label>Google Plus</label>
+      						<!-- <a href="#" data-onsuccess="onSignIn"><i class="fa fa-google fa-4x" id="google-icon" ></i> <label>Google</label></a> -->
+                  <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                  <div id="my-signin2"></div>
+                  <!-- <div id="gSignInWrapper" >
+                    <a id="customBtn" class="customGPlusSignIn">
+                      <span class="icon"></span>
+                      <label class="buttonText">Google</label>
+                    </a>
+                  </div> -->
+                  
       					</div>
       					<div class="col-sm-4" id="facebook">
       						<a href="/fb_login"><i class="fa fa-facebook-square fa-4x" id="facebook-icon" ></i> <label>Facebook</label></a>

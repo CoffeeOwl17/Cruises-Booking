@@ -9,12 +9,17 @@ use App\Http\Controllers\Controller;
 
 use Facebook;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Session;
 use Config;
 
 session_start();
 
 class login_controller extends Controller
 {
+	var $temp_loginType;
+	var $temp_twitterToken;
+	var $temp_twitterSecret;
+
     public function facebook(){
     	$fb = new Facebook\Facebook([
 		  'app_id' => Config::get('facebook.appid'),
@@ -44,17 +49,13 @@ class login_controller extends Controller
 
     public function twitter(){
     	$connection = new TwitterOAuth(Config::get('twitter.appid'), Config::get('twitter.secret'));
-    	$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => "http://127.0.0.1:8000/home"));
-    	if($request_token["oauth_callback_confirmed"]){
-    		$_SESSION['login_type'] = "facebook";
-    		$_SESSION['oauth_token'] = $request_token['oauth_token'];
-			$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
-			$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+    	$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => Config::get('twitter.callback')));
+    	$_SESSION['login_type'] = "twitter";
+		$_SESSION['oauth_token'] = $request_token['oauth_token'];
+		$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
+		$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
 
-			$_SESSION['login_type'] = "twitter";
-			return redirect($url);
-    	}
-    	
+		return redirect($url);
     }
 
     public function google_session(){

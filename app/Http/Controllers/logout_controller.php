@@ -13,6 +13,6 @@ class logout_controller extends Controller
 {
     public function index(){
     	session_destroy();
-    	return view('index');
+    	return redirect('/');
     }
 }

@@ -16,6 +16,7 @@ Route::get('/fb_login', 'login_controller@facebook');
 Route::get('/twitter_login', 'login_controller@twitter');
 Route::post('/glogin_session', 'login_controller@google_session');
 Route::get('/home', 'home_controller@index');
+Route::get('/Twittercallback', 'login_controller@Twitter_callback');
 Route::get('/logout', 'logout_controller@index');
 
 

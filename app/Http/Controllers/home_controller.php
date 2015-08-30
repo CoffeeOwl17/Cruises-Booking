@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Facebook;
 use Config;
 use Session;
+use App;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 
@@ -128,6 +129,10 @@ class home_controller extends Controller
 					'Name' 		=> $user->screen_name,
 					'ID' 		=> $user->id
 				);
+			}
+			$user = App\user::where('oauthID', $user_data['ID'])->first(); 
+			if(is_null($user)){
+				return view('Registration.registration', $user_data);
 			}
 			return view('home', $user_data);
 		}

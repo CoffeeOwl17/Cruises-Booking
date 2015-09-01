@@ -22,36 +22,32 @@
 		  console.log('User signed out.');
 		});
 	}
+
+	$(function(){
+		$( ".form-horizontal" ).submit(function( e ) {
+			var name = $.trim($("#inputName").val());
+			var email = $.trim($("#inputEmail").val());
+			var address = $.trim($("#inputAddress").val());
+			if(name == '' || email == '' || address == ''){
+				alert("All field are required to enter.");
+				e.preventDefault();	
+			}
+		});
+	});
 </script>
 @endsection
 
 
 @section('content')
-<style>
-#logout{
-	margin-top: 30px;
-	/*margin-bottom: -50px;	*/
-}
-</style>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-6">
-			<h1>Crunard Line <small>Largest Cruise Operator In The Word</small></h1> 
-		</div>
-		<div class="col-md-6" align="right">
-			<button id="logout" class="btn btn-default">Logout</button> 
-		</div>
+	<div class="container col-md-8 col-md-offset-2">
+		<ol class="breadcrumb">
+			<li>Signup</li>
+			<li class="active">Complete</li>
+		</ol>
+		<h2 align="center">Congratulation</h2>
+		<h3 align="center">You has successfully registered as member</h3>
+		<h4 align="center"><a href="/home">Click here to enter</a></h4>
 	</div>
 </div>
-<hr/>
-<div class="container-fluid">
-	<div class="jumbotron">
-		<div class="container-fluid">
-			<h3>Choose a package</h3>
-		</div>
-	</div>
-</div>
-{!! $Name !!}
-{!! $ID !!}
-<a href="/logout" onclick="signOut();">logout</a>
 @endsection

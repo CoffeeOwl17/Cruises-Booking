@@ -45,30 +45,43 @@
 			<li class="active">Signup</li>
 		</ol>
 		<h3 align="center">Please complete the form <span class="label label-default">New Member</span></h3>
-		<form class="form-horizontal">
+		<form class="form-horizontal" method="post">
+			<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+			<div class="form-group">
+				<label for="inputLogin" class="col-sm-2 control-label">Login as</label>
+				<div class="col-sm-10">
+				  <input type="text" class="form-control" id="inputLogin" name="inputLogin" readonly="readonly" value="{!! $type !!}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputOAuth" class="col-sm-2 control-label">OAuth ID</label>
+				<div class="col-sm-10">
+				  <input type="text" class="form-control" id="inputOAuth" name="inputOAuth" readonly="readonly" value="{!! $ID !!}">
+				</div>
+			</div>
 			<div class="form-group">
 				<label for="inputName" class="col-sm-2 control-label">Name</label>
 				<div class="col-sm-10">
-				  <input type="text" class="form-control" id="inputName" value="{!! $Name !!}">
+				  <input type="text" class="form-control" id="inputName" name="inputName" value="{!! $Name !!}">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputGender" class="col-sm-2 control-label">Gender</label>
 				<div class="col-sm-10">
-				  <label class="radio-inline"><input type="radio" name="optGender" checked="true">Male</label>
-				  <label class="radio-inline"><input type="radio" name="optGender">Female</label>
+				  <label class="radio-inline"><input type="radio" name="optGender" value="male" checked="true">Male</label>
+				  <label class="radio-inline"><input type="radio" name="optGender" value="female" >Female</label>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputEmail" class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-10">
-				  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+				  <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputAddress" class="col-sm-2 control-label">Address</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" id="inputAddress" rows="3" placeholder="Address"></textarea>
+					<textarea class="form-control" id="inputAddress" name="inputAddress" rows="3" placeholder="Address"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
@@ -76,7 +89,7 @@
 				  <a href='/logout' class='btn btn-default' onclick="signOut();">
 		            <font>Back</font>
 		          </a>
-				  <button type="submit" class="btn btn-danger">Sign in</button>
+				  <input type="submit" value="Sign in" class="btn btn-danger"/>
 				</div>
 			</div>
 		</form>

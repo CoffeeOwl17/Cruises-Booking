@@ -13,7 +13,6 @@ class CreateUserTable extends Migration
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('oauthID');
             $table->string('loginType');
             $table->string('name');
@@ -21,6 +20,8 @@ class CreateUserTable extends Migration
             $table->string('email');
             $table->text('address');
             $table->timestamps();
+
+            $table->primary('oauthID');
         });
     }
 

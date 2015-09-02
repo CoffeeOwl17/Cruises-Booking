@@ -47,17 +47,36 @@
 <div class="container-fluid">
 	<div class="jumbotron">
 		<div class="container-fluid">
-			<div class="col-md-6">
-				<form method="post" action="/book">
+			<div class="container col-md-8 col-md-offset-2">
+				<form method="post" action="/book/payment">
 					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 					<div class="form-group">
-						<label for="selPackage">Select your journey: </label>
-						<select class="form-control" name="cruiseOption">
-						    <option value="C001">6 Night Japan Cruise</option>
-						    <option value="C002">7 Night Southeast Asia Cruise</option>
-						    <option value="C003">6 Night Malaysia Cruise</option>
-						    <option value="C004">7 Night Australia Cruise</option>
-						    <option value="C005">3 Night Brazil Cruise</option>
+						<label for="selNumStateroom">How many Staterooms would you like to travel in: </label>
+						<select class="form-control" name="numStateroomOption">
+						    <option value="1">1 stateroom</option>
+						    <option value="2">2 staterooms</option>
+						    <option value="3">3 staterooms</option>
+						    <option value="4">4 staterooms</option>
+						    <option value="5">5 staterooms</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="selGuest">How many guets will be traveling in this stateroom: </label>
+						<select class="form-control" name="guestOption">
+						    <option value="1">1</option>
+						    <option value="2">2</option>
+						    <option value="3">3</option>
+						    <option value="4">4</option>
+						    <option value="5">5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="selStateroom">What type of stateroomdo you want to travel in: </label>
+						<select class="form-control" name="stateroomOption">
+						    <option value="S001">Royal  - RM 600</option>
+						    <option value="S002">Deluxe - RM 500</option>
+						    <option value="S003">Grand  - RM 400</option>
+						    <option value="S004">Junior - RM 300</option>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>

@@ -134,6 +134,7 @@ class home_controller extends Controller
 			if(is_null($user)){
 				return view('Registration.registration', $user_data);
 			}
+			$_SESSION['user_id'] = $user_data['ID'];
 			return view('home', $user_data);
 		}
 		else{

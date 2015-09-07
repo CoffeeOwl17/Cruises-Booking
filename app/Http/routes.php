@@ -20,6 +20,11 @@ Route::post('/home', 'registration_controller@index');
 Route::post('/book', 'book_controller@index');
 Route::post('/book/payment', 'book_controller@setInfo');
 Route::post('/book/confirm', 'book_controller@makePayment');
+
+Route::get('payment/status', array(
+    'as' => 'payment.status',
+    'uses' => 'book_controller@exePayment',
+));
 Route::get('/logout', 'logout_controller@index');
 
 
